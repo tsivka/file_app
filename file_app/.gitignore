@@ -7,7 +7,33 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore uploads
+/public/uploads/
+
+# Ignore public assets
+/public/assets/
+
+# Ignore rbenv/RVM, Ruby is specified in Gemfile
+.ruby-version
+.ruby-gemset
+
+# Ignore IDE
+/.idea
+
+# Ignore footer file
+/lib/footer/footer.html
+/Vagrantfile
+/.vagrant
+
+#Ignore secrets
+/config/secrets.yml
+/config/database.yml
