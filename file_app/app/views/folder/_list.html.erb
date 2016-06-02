@@ -1,0 +1,16 @@
+<ul>
+    <% @folders[:children].each do |item| %>
+    <% if item.is_a?(Hash) %>
+
+    <li class="open-folder" data-path="<%=@folders[:data]+'/'+item[:data]%>">
+        <i class="fa fa-folder" aria-hidden="true"></i>
+        <%= item[:data] %>
+    </li>
+    <% else %>
+    <li>
+        <i class="fa fa-file-text-o" aria-hidden="true"></i>
+        <%= item %>
+    </li>
+    <% end %>
+    <% end %>
+</ul>
