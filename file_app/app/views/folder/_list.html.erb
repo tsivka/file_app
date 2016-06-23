@@ -7,9 +7,13 @@
         <%= item[:data] %>
     </li>
     <% else %>
-    <li>
+    <li class="open-file" data-path="<%=@folders[:data]+'/'+item%>">
         <i class="fa fa-file-text-o" aria-hidden="true"></i>
         <%= item %>
+      <%= form_for :download, url: folder_download_file_path do |f|%>
+        <%=f.hidden_field :filepath, value: @folders[:data]+'/'+item %>
+        <%=f.submit class: "fa fa-download download-file", value:'Download'%>
+      <%end%>
     </li>
     <% end %>
     <% end %>

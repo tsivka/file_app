@@ -10,11 +10,18 @@ Rails.application.routes.draw do
     end
   end
   post 'folder/content' => 'folder#content'
+  post 'folder/show_file' => 'folder#show_file'
+  post 'folder/create_file' => 'folder#create_file'
+  post 'folder/download_file' => 'folder#download_file'
+  resources :uploader
+  post "uploader/create"
+
   # get "folder/content" => "folder#content"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
+  # Example of named route that
+  # can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):

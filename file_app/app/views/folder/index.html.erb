@@ -1,2 +1,33 @@
-<%= @folders[:data] %>
-<%= render partial: 'list', object: @folders %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+
+      <span class="folder-path"><%= @folders[:data] %></span>
+      <input type="text" class="file-name" />
+      <%= render partial: 'list', object: @folders %>
+    </div>
+    <div class="col-md-6">
+      <a class="js-create" href="javascript:void(0);">
+        Create File
+      </a>
+      <a class="js-save" href="javascript:void(0);">
+        Save File
+      </a>
+      <textarea class="file-area" ></textarea>
+
+    </div>
+  </div>
+  <div>
+    <% flash.each do |key, msg| %>
+        <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_#{key}" %>
+    <% end %>
+    <%= form_tag '/uploader/create', { :multipart => true } do %>
+        <p>
+          <%= file_field_tag 'uploader[file]' %>
+        </p>
+        <p>
+          <%= submit_tag "Upload" %>
+        </p>
+    <% end %>
+  </div>
+</div>
